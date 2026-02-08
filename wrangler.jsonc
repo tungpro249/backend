@@ -1,0 +1,40 @@
+{
+	"name": "backend",
+	"main": "src/worker.ts",
+	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_date": "2026-01-14",
+	"r2_buckets": [
+		{
+			"bucket_name": "r2-uploads",
+			"binding": "R2_UPLOADS","preview_bucket_name": "r2-uploads"
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "adv-db",
+			"database_id": "2e493ea8-5a46-40ae-ae2e-4a0e45b80cce"
+		}
+	],
+	"vars": {
+		"CORS_ORIGINS": "https://your-frontend-url.workers.dev",
+		"JWT_SECRET": "input-any-secret-key",
+		"R2_PUBLIC_URL": "https://cdn.example.com",
+		"FILE_SIGN_SECRET": "input-any-secret-key"
+	},
+	"observability": {
+		"enabled": false,
+		"head_sampling_rate": 1,
+		"logs": {
+			"enabled": true,
+			"head_sampling_rate": 1,
+			"persist": true,
+			"invocation_logs": true
+		},
+		"traces": {
+			"enabled": false,
+			"persist": true,
+			"head_sampling_rate": 1
+		}
+	}
+}
